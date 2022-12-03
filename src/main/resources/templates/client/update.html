@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div layout:fragment="content">
 <form th:action="@{'/client/update/'+ ${ client.id }}" method="post" th:object="${client}">
     <input type="text" placeholder="name" th:field="*{name}"><br>
     <input type="email" th:field="*{email}" placeholder="email"><br>
@@ -12,5 +15,6 @@
     <input type="submit" value="save">
 
 </form>
+</div>
 </body>
 </html>
