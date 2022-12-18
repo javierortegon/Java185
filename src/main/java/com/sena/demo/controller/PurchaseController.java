@@ -41,6 +41,7 @@ public class PurchaseController {
     @GetMapping("/purchase/update/{id}")
     public String showUpdatePurchase(@PathVariable Long id, Model model){
         model.addAttribute("purchase", purchaseService.getPurchase(id));
+        model.addAttribute("clients", clientService.getClients());
         return "purchase/update";
     }
 
