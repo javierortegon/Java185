@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Client</td>
+                <td>Total</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="purchase : ${purchases}">
+                <td th:text="${purchase.date}"></td>
+                <td th:text="${purchase.client.name}"></td>
+                <td th:text="${purchase.total}"></td>
+                <td><a th:href="@{'/purchase/update/'+ ${ purchase.id }}">Update</a></td>
+                <td><a th:href="@{'/purchase/delete/'+ ${ purchase.id }}">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
